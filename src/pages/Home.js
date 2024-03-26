@@ -1,7 +1,12 @@
 import React from "react";
+import Carousal from "../components/Carousal";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Carousal />
+    </div>
+  );
 };
 
 export default Home;
