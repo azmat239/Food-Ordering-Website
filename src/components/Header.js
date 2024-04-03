@@ -1,11 +1,9 @@
-import classNames from "classnames";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const listClasses = classNames("");
   return (
-    <div className="fixed z-10 flex justify-between w-screen">
+    <div className="fixed top-0 z-10 flex justify-between w-screen">
       <div className="ml-4">
         <img
           src="./logo.jpg"
@@ -15,8 +13,8 @@ const Header = () => {
           className="rounded-xl shadow-lg object-center"
         />
       </div>
-      <ul className="flex justify-evenly items-center mr-10 gap-4">
-        <li className={classNames}>
+      <ul className="hidden sm:flex justify-evenly items-center mr-10 gap-4">
+        <li>
           <NavLink
             to="/"
             style={({ isActive }) => {
@@ -31,7 +29,7 @@ const Header = () => {
             Home
           </NavLink>
         </li>
-        <li className={listClasses}>
+        <li>
           <NavLink
             to="/signup"
             style={({ isActive }) => {
@@ -46,7 +44,7 @@ const Header = () => {
             SignUp
           </NavLink>
         </li>
-        <li className={listClasses}>
+        <li>
           <NavLink
             to="/login"
             style={({ isActive }) => {

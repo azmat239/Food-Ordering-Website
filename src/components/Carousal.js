@@ -13,27 +13,27 @@ const Carousal = () => {
         showThumbs={false}
         infiniteLoop
         showArrows={false}
-        className="rounded-lg shadow-2xl"
+        className="rounded-lg shadow-2xl shadow-slate-300"
       >
         <div>
           <img
             src="https://source.unsplash.com/random/1920x1080/?burger"
             alt="not found"
-            className="h-[95vh] w-screen shadow-2xl"
+            className="h-[70vh] sm:h-[95vh] w-screen shadow-2xl"
           />
         </div>
         <div>
           <img
             src="https://source.unsplash.com/random/1920x1080/?sandwich"
             alt="not found"
-            className="h-[95vh] w-screen shadow-2xl"
+            className="h-[70vh] sm:h-[95vh] w-screen shadow-2xl"
           />
         </div>
         <div>
           <img
             src="https://source.unsplash.com/random/1920x1080/?pizza"
             alt="not found"
-            className="h-[95vh] w-screen shadow-2xl"
+            className="h-[70vh] sm:h-[95vh] w-screen shadow-2xl"
           />
         </div>
       </Carousel>

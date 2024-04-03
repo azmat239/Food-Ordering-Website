@@ -63,14 +63,14 @@ const Home = () => {
     },
   ];
   return (
-    <div>
+    <div className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%">
       <Carousal />
       <div className="mt-10 mb-2 ">
-        <h1 className="text-center text-amber-700 font-extrabold text-5xl">
+        <h1 className="text-center text-indigo-800 font-extrabold text-5xl">
           FoodList
         </h1>
       </div>
-      <div className="grid grid-cols-3 justify-evenly gap-4 mx-4 my-4">
+      <div className="grid grid-cols-1 justify-around md:grid-cols-2 lg:grid-cols-3 md:justify-evenly gap-4 mx-4 mt-4">
         {cardList &&
           cardList.map((list) => <ListCards card={list.cardsinput} />)}
       </div>
