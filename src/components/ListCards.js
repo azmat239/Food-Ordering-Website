@@ -2,7 +2,7 @@ import React from "react";
 
 const ListCards = ({ card }) => {
   return (
-    <div className="sm:w-[40vw] lg:w-fit flex border rounded-l-xl border-red-600 rounded-r-md shadow-lg mb-4 shadow-indigo-400">
+    <div className="sm:w-[40vw] lg:w-fit flex border rounded-l-xl border-red-600 rounded-r-md shadow-lg shadow-black mb-4">
       <div>
         <img
           src={card.imgSrc}

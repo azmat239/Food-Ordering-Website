@@ -1,8 +1,12 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import classNames from "classnames";
 
 const Carousal = () => {
+  const imageClasses = classNames(
+    "h-[70vh] sm:h-[95vh] w-scree  shadow-2xl shadow-black rounded-b-xl"
+  );
   return (
     <div className="relative top-0 z-0">
       <Carousel
@@ -19,21 +23,21 @@ const Carousal = () => {
           <img
             src="https://source.unsplash.com/random/1920x1080/?burger"
             alt="not found"
-            className="h-[70vh] sm:h-[95vh] w-screen shadow-2xl"
+            className={imageClasses}
           />
         </div>
         <div>
           <img
             src="https://source.unsplash.com/random/1920x1080/?sandwich"
             alt="not found"
-            className="h-[70vh] sm:h-[95vh] w-screen shadow-2xl"
+            className={imageClasses}
           />
         </div>
         <div>
           <img
             src="https://source.unsplash.com/random/1920x1080/?pizza"
             alt="not found"
-            className="h-[70vh] sm:h-[95vh] w-screen shadow-2xl"
+            className={imageClasses}
           />
         </div>
       </Carousel>

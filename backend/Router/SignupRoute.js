@@ -2,6 +2,7 @@ const express = require("express");
 const User = require("../model/User");
 const route = express.Router();
 const { body, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
 
 route.post(
   "/",
@@ -17,6 +18,8 @@ route.post(
       return res.status(400).json({ error: hasErrors.array() });
     }
     let { name, password, email, location } = req.body;
+    const salt = await bcrypt.genSalt(10);
+    const securePwd = await bcrypt.hash(password, salt);
     try {
       let userExist = await User.findOne({ email });
       if (userExist) {
@@ -24,7 +27,7 @@ route.post(
       }
       let userInput = new User({
         name: name,
-        password: password,
+        password: securePwd,
         email: email,
         location: location,
       });
