@@ -16,7 +16,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/signup", {
+    const response = await fetch("http://localhost:5000/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,15 +31,18 @@ const Signup = () => {
     console.log(formData);
     const json = await response.json();
     if (json.success) {
-      alert("created");
-      navigate("/");
-    } else {
-      alert("Not Created");
+      navigate("/login");
+    } else if (!json.success) {
+      alert("Please Provide The Valid Details");
+    }
+    if (json.Exists) {
+      alert("User Already Exist please Login");
+      navigate("/login");
     }
   };
 
   const onInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: [e.target.value] });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
     <div className="flex flex-col gap-4 justify-center  items-center w-screen h-screen bg-gradient-to-r from-emerald-500 from-10% via-indigo-500  via-30% to-sky-500 to-90%">
@@ -67,7 +70,7 @@ const Signup = () => {
             </div>
             <div>
               <input
-                type="text"
+                type="password"
                 name="password"
                 value={formData.password}
                 onChange={onInputChange}
@@ -77,7 +80,7 @@ const Signup = () => {
             </div>
             <div>
               <input
-                type="text"
+                type="email"
                 name="email"
                 value={formData.email}
                 onChange={onInputChange}

@@ -8,20 +8,18 @@ import {
   FaSnapchat,
 } from "react-icons/fa";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   const iconClass = classNames("text-3xl hover:text-indigo-700");
   const navClasses = classNames("text-xl font-bold hover:text-red-600");
   return (
-    <div className="flex flex-col sm:flex-row gap-4 sm:justify-evenly items-center bg-gradient-to-r from-sky-500 from-10% via-emerald-500 via-30% to-indigo-500 to-90% ">
-      <div className="py-4 px-6">
-        <img
-          src="./logo.jpg"
-          alt="no"
-          width={100}
-          height={100}
-          className="w-44 h-24 rounded-md"
-        />
+    <div className="flex flex-col pt-10 sm:flex-row gap-4 sm:justify-evenly items-center bg-gradient-to-r from-sky-500 from-10% via-emerald-500 via-30% to-indigo-500 to-90% pb-10">
+      <div className="py-4 px-6 border rounded-2xl shadow-xl shadow-black">
+        <NavLink to="/" className="font-mono font-extrabold">
+          <span className="text-slate-700 text-5xl">Foo</span>
+          <span className="text-red-600 text-3xl">Reso</span>
+        </NavLink>
       </div>
 
       <ul>

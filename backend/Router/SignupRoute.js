@@ -5,7 +5,7 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 
 route.post(
-  "/",
+  "/signup",
   body("email", "Invalid Email").isEmail(),
   body("password", "password Length Should Be 8 Characters").isLength({
     min: 8,
@@ -17,13 +17,13 @@ route.post(
       console.log(hasErrors);
       return res.status(400).json({ error: hasErrors.array() });
     }
-    let { name, password, email, location } = req.body;
+    let { name, email, location } = req.body;
     const salt = await bcrypt.genSalt(10);
-    const securePwd = await bcrypt.hash(password, salt);
+    const securePwd = await bcrypt.hash(req.body.password, salt);
     try {
       let userExist = await User.findOne({ email });
       if (userExist) {
-        return res.status(400).json({ "User-Exists": true });
+        return res.status(400).json({ Exists: true });
       }
       let userInput = new User({
         name: name,

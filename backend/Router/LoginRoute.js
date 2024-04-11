@@ -7,7 +7,7 @@ const jwt = require("jsonwebtoken");
 
 const secretJwt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ#1@";
 router.post(
-  "/",
+  "/login",
   body("email", "Invalid Email").isEmail(),
   body("password").isLength({
     min: 8,
