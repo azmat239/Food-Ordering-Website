@@ -6,9 +6,14 @@ const CartContext = createContext({
       id: "",
       name: "",
       des: "",
+      imgSrc: "",
+      size: "",
+      Quantity: 0,
+      totalPrice: 0,
     },
   ],
   addCart: (cart) => {},
+  removeCart: () => {},
 });
 
 export const CartContextProvider = CartContext.Provider;

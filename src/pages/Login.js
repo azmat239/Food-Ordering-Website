@@ -20,8 +20,8 @@ const Login = () => {
     });
     const json = await response.json();
     if (json.success) {
+      localStorage.setItem("email", formData.email);
       localStorage.setItem("authToken", json.authToken);
-      console.log(localStorage.getItem("authToken"));
       navigate("/");
     } else {
       alert("InValid Details");

@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
-const url =
-  "mongodb+srv://azmat1901219:jeenu533688@cluster0.8evzzyq.mongodb.net/FooReso";
+const dotenv = require("dotenv");
+
+dotenv.config();
+
+const url = process.env.MONGODBURL;
+
 const clientConnect = async () => {
   await mongoose.connect(url).then(
     async () => {
@@ -11,7 +15,7 @@ const clientConnect = async () => {
       global.foodCategory = await foodCategory.find({}).toArray();
     },
     (err) => {
-      console.log("error Occured");
+      console.log("error Occured", err.message);
     }
   );
 };

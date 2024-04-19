@@ -3,11 +3,12 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import ListCards from "../components/ListCards";
 import classNames from "classnames";
+import { useCart } from "../Context/CartContext";
 
 const Home = () => {
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState([]);
-  const [search, setSearch] = useState("");
+  const { searchQuery } = useCart();
   const loadData = async () => {
     try {
       let response = await fetch("http://localhost:5000/api/datafetch", {
@@ -35,15 +36,6 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% relative">
       <div className="relative top-0 z-0">
-        <div className="absolute z-10 bottom-24 left-[10%] sm:left-[35%]">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Enter Your Search Query"
-            className=" focus:outline-none py-1 px-4 font-medium text-lg sm:w-96 rounded-xl "
-          />
-        </div>
         <Carousel
           showStatus={false}
           autoPlay
@@ -79,28 +71,31 @@ const Home = () => {
       </div>
       {category &&
         category.map((cat) => (
-          <>
-            <div
-              className="sm:mt-10 sm:mb-2 flex justify-center"
-              key={cat.CategoryName}
-            >
+          <div key={cat.CategoryName}>
+            <div className="sm:mt-10 sm:mb-2 flex justify-center">
               <h1 className="text-center px-2 py-4 rounded-lg text-indigo-800 font-extrabold sm:text-3xl w-fit h-fit shadow-md shadow-black ">
                 {cat.CategoryName}
               </h1>
             </div>
-            <div className="grid grid-cols-1 justify-around md:grid-cols-2 lg:grid-cols-4 md:justify-evenly gap-4 mx-4 mt-4">
-              {items &&
-                items
-                  .filter(
-                    (item) =>
-                      item.CategoryName === cat.CategoryName &&
-                      item.name.toLowerCase().includes(search.toLowerCase())
-                  )
-                  .map((filteredItems, index) => (
-                    <ListCards card={filteredItems} key={index} />
-                  ))}
+            <div className="relative overflow-hidden">
+              <div className="flex overflow-x-auto scrollbar-hide">
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2 justify-around md:grid-cols-3 lg:grid-cols-4 md:justify-evenly gap-4 mx-4 mt-4"> */}
+                {items &&
+                  items
+                    .filter(
+                      (item) =>
+                        item.CategoryName === cat.CategoryName &&
+                        item.name
+                          .toLowerCase()
+                          .includes(searchQuery.toLowerCase())
+                    )
+                    .map((filteredItems, index) => (
+                      <ListCards card={filteredItems} key={index} />
+                    ))}
+              </div>
+              <div className="absolute bg-gradient-to-l from-emerald-800  to-transparent right-0 w-10 inset-y-0 "></div>
             </div>
-          </>
+          </div>
         ))}
     </div>
   );
