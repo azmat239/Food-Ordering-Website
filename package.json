@@ -42,5 +42,9 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1"
-  }
+  },
+  "main": "./backend/index.js",
+  "repository": "https://github.com/azmat239/Food-Ordering-Website.git",
+  "author": "Azmat <azmat239@gmail.com>",
+  "license": "MIT"
 }

@@ -31,12 +31,15 @@ export default function Cart({ onClose }) {
     setCart([]);
   };
   return (
-    <div className="z-10 absolute top-0 right-60 bg-white shadow-md shadow-black border border-md h-[80vh] w-[60vw] p-4 rounded-md scrollbar-hide overflow-auto">
-      <div className="flex justify-end my-2  ">
+    <div className="h-[70vh] w-[80vw] z-10 absolute top-10 right-20 md:right-60 bg-white shadow-md shadow-black border border-md md:h-[80vh]  md:w-[70vw] p-4 rounded-md scrollbar-hide overflow-auto">
+      <div className="flex justify-end">
         <button onClick={onClose}>
           {" "}
           <MdCancel className="text-5xl text-red-500" />
         </button>
+      </div>
+      <div className="flex justify-center items-center">
+        <h1 className=" text-lg text-indigo-500 font-bold">My Cart Items</h1>
       </div>
 
       <CartList />

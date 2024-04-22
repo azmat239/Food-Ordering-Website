@@ -32,6 +32,7 @@ const ListCards = ({ card }) => {
       size: size,
       Quantity: quantity,
       totalPrice: totalPrice,
+      date: new Date().toLocaleDateString(),
     });
   }, [
     size,

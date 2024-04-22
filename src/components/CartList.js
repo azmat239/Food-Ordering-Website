@@ -7,7 +7,7 @@ const CartList = () => {
   return (
     <div>
       {cart.length !== 0 ? (
-        <div className="grid grid-cols-4 gap-4 justify-center items-center text-center text-white">
+        <div className="grid sm:grid-cols-3 lg:grid-cols-4 gap-4 justify-center items-center text-center text-white">
           {cart.map((cart) => (
             <div key={cart.id} className="w-48 bg-black rounded-md p-2">
               <div>
@@ -45,7 +45,7 @@ const CartList = () => {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center h-80">
-          <div className="text-5xl flex gap-2">
+          <div className="text-3xl lg:text-5xl flex gap-2">
             No Item In The Cart <CgTrashEmpty />
           </div>
           <p>Add Some Items To The Cart</p>
